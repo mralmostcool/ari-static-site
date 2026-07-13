@@ -8,3 +8,4 @@ No history yet. This section will summarize older context once more than 5 promp
 4. Removed unnecessary boilerplate files (App.css, react.svg, vite.svg) as requested without using git commands.
 5. Built responsive layout skeleton (Navbar, Footer) and integrated sub-pages (Home, About Us, Products, Clients, Newsroom, Training) with hash routing and custom page titles.
 6. Refactored layout, moving pages from src/components/ to src/pages/ and updating App.tsx imports. Created typescript-quality.md rules and new-page.md workflows, updating new-component.md workflow.
+7. Configured Figma MCP server globally in mcp_config.json utilizing the user-supplied personal access token.
