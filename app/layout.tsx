@@ -14,8 +14,6 @@ const inter = Inter({
   display: 'swap',
 });
 
-import { Navbar, Footer } from '@/components';
-
 export const metadata: Metadata = {
   title: 'ARI Corp — B2B Solutions',
   description:
@@ -33,9 +31,7 @@ export default function RootLayout({
       className={`${figtree.variable} ${inter.variable} h-full antialiased`}
     >
       <body className='min-h-full flex flex-col bg-zinc-50/50 text-zinc-950 font-sans'>
-        <Navbar />
-        <main className='flex flex-1 flex-col bg-white'>{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

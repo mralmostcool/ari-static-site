@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "npx serve@latest out",
+    "lint": "eslint",
+    "go": "next build && npx serve@latest out"
   },
   "dependencies": {
     "next": "16.2.10",
