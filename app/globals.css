@@ -1,5 +1,146 @@
 @import "tailwindcss";
-@import "./typography.css";
+/* @import "./typography.css"; */
+
+:root {
+  /* ==========================================================================
+     Typography Variables & Scales
+     ========================================================================== */
+  --typescale-6xl: 4.5rem;
+  /* 72px — hero/display headlines, use sparingly */
+  --typescale-5xl: 3.5rem;
+  /* 56px — page hero headings */
+  --typescale-4xl: 2.75rem;
+  /* 44px — section heroes, H1 */
+  --typescale-3xl: 2.25rem;
+  /* 36px — H1 (standard pages) */
+  --typescale-2xl: 1.875rem;
+  /* 30px — H2 */
+  --typescale-xl: 1.5rem;
+  /* 24px — H3 */
+  --typescale-lg: 1.25rem;
+  /* 20px — H4 / large body / card titles */
+  --typescale-md: 1.125rem;
+  /* 18px — lead paragraphs, subheads */
+  --typescale-base: 1rem;
+  /* 16px — body text */
+  --typescale-sm: 0.875rem;
+  /* 14px — secondary text, captions */
+  --typescale-xs: 0.75rem;
+  /* 12px — labels, metadata */
+  --typescale-xxs: 0.625rem;
+  /* 10px — fine print, legal, badges */
+
+  /* Fonts Configuration */
+  --font-heading: var(--font-figtree), var(--font-inter), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+
+  /* Colors */
+  --color-heading: #111827;
+  --color-heading-muted: #4b5563;
+}
+
+/* ==========================================================================
+   Heading Type Scale — B2B Corporate
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading, inherit);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em 0;
+}
+
+h1 {
+  font-size: var(--typescale-4xl);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin-bottom: 0.4em;
+}
+
+h2 {
+  font-size: var(--typescale-3xl);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  margin-top: 1.6em;
+}
+
+h3 {
+  font-size: var(--typescale-2xl);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-top: 1.4em;
+}
+
+h4 {
+  font-size: var(--typescale-xl);
+  line-height: 1.3;
+  /* margin-top: 1.2em; */
+}
+
+h5 {
+  font-size: var(--typescale-lg);
+  line-height: 1.35;
+  font-weight: 600;
+  margin-top: 1em;
+}
+
+h6 {
+  font-size: var(--typescale-md);
+  line-height: 1.4;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 1em;
+}
+
+/* First heading in a container shouldn't have top margin */
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
+}
+
+/* Hero/display variant — for landing page heroes, not standard content H1s */
+.heading-display {
+  font-family: var(--font-heading, inherit);
+  font-size: var(--typescale-5xl);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .heading-display {
+    font-size: var(--typescale-6xl);
+  }
+}
+
+/* Responsive scaling for mobile — headings feel oversized on small screens otherwise */
+@media (max-width: 640px) {
+  h1 {
+    font-size: var(--typescale-3xl);
+  }
+
+  h2 {
+    font-size: var(--typescale-2xl);
+  }
+
+  h3 {
+    font-size: var(--typescale-xl);
+  }
+}
+
 
 :root {
   --background: #ffffff;
