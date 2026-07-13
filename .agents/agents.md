@@ -20,6 +20,13 @@ This document outlines the organization, roles, and instructions for the custom 
   * Reports progress, design decisions, and verification findings back to `team_lead`.
   * Multiple instances can be active in parallel to tackle distinct files or features.
 
+### 3. [code_checker](.agents/skills/code_checker/SKILL.md)
+* **Role**: On-Demand Code Checker / Compiler Auditor
+* **Responsibilities**:
+  * Invoked exclusively by the user when requested to check code for errors.
+  * Runs the build/compiler checks (`npm run build` or `tsc --noEmit`) to identify compilation, type, or lint errors.
+  * Does not attempt to fix errors; compiles and reports the errors back to the `team_lead` to resolve.
+
 ---
 
 ## Workspace Rules & Workflows Compliance
