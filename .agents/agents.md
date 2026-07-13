@@ -1,39 +1,43 @@
+# Workspace Multi-Agent System
+
+This document outlines the organization, roles, and instructions for the custom agents configured in this workspace.
+
+## Agent Personas
+
+### 1. [team_lead](.agents/skills/team_lead/SKILL.md)
+* **Role**: Primary Point of Contact & Coordinator
+* **Responsibilities**:
+  * Acts as the main point of contact for the user.
+  * Directs/coordinates all work, including scoping, architecture, and planning.
+  * Launches, directs, and supervises instances of `frontend_developer` to build UI features.
+  * Aggregates findings and ensures changes strictly follow safety, git, performance, and SEO rules.
+
+### 2. [frontend_developer](.agents/skills/frontend_developer/SKILL.md)
+* **Role**: Frontend Developer
+* **Responsibilities**:
+  * Implements UI, layouts, responsiveness, styling (Tailwind CSS), and client-side logic.
+  * Focuses on code quality (TypeScript), accessibility, performance, and SEO tags.
+  * Reports progress, design decisions, and verification findings back to `team_lead`.
+  * Multiple instances can be active in parallel to tackle distinct files or features.
+
 ---
-description: Specialized personas for this project
----
 
-# Agent Personas
+## Workspace Rules & Workflows Compliance
 
-This project uses lightweight personas rather than a full autonomous
-pipeline. Invoke one by name at the start of a request (e.g. "As the
-Reviewer, check this component") or let the agent infer the right persona
-from the task.
+Both agents are governed by the custom rules defined in `.agents/rules/` and use workflows defined in `.agents/workflows/`.
 
-## Builder
-Role: Implements features, pages, and components.
-- Follows performance.md, responsiveness.md, typescript-quality.md, and
-  seo.md rules strictly while writing code.
-- Scaffolds using the new-component workflow when creating new UI pieces.
-- Focuses on shipping working code fast — leaves deep review to the
-  Reviewer persona rather than over-polishing on the first pass.
+### Core Rules Reference
+* [Windows Terminal Rule](.agents/rules/windows-termincal.md) — Prefix all terminal commands with `cmd /c` on Windows.
+* [Memory Management Rule](.agents/memory.md) — Keep `.agents/memory.md` updated and within word limits.
+* [Git & Safety Rule](.agents/rules/git-and-safety.md) — Stage, commit, and push work upon task completion. Ensure branch hygiene.
+* [Performance Standards](.agents/rules/performance.md) — Avoid heavy imports, optimize images, utilize code splitting.
+* [Responsiveness Rules](.agents/rules/responsiveness.md) — Mobile-first styling via Tailwind, fluid sizing, no overflow.
+* [SEO Rules](.agents/rules/seo.md) — Handle tags, canonical URLs, semantic HTML hierarchy.
+* [TypeScript Quality](.agents/rules/typescript-quality.md) — Strict types, interfaces, folder layout.
 
-## Reviewer
-Role: Checks completed work before it's considered done.
-- Runs (or recommends running) check-perf, responsive-check,
-  accessibility-check, and seo-audit workflows against changed files.
-- Looks for rule violations: hardcoded font sizes, fixed pixel widths,
-  missing alt text, untyped props, etc.
-- Reports issues as a clear list with file references — does not silently
-  fix things unless asked.
-
-## Deployer
-Role: Handles git and release readiness.
-- Runs commit-and-push once Builder/Reviewer work is finished.
-- Confirms `npm run build` succeeds before pushing.
-- Flags anything that looks unready for production (console.logs, TODO
-  comments, missing env vars) before pushing to main.
-
-## Handoff pattern
-A typical task flows: Builder implements → Reviewer checks → Deployer
-commits and pushes. For small changes, one persona can do all three steps
-in sequence within the same conversation.
+### Workflows Reference
+* [build-review-ship](.agents/workflows/build-review-ship.md) — Coordinate testing and shipping.
+* [new-component](.agents/workflows/new-component.md) — Scaffold a React component.
+* [responsive-check](.agents/workflows/responsive-check.md) — Audit layout responsiveness.
+* [accessibility-check](.agents/workflows/accessibility-check.md) — Audit accessibility features.
+* [seo-audit](.agents/workflows/seo-audit.md) — Audit route SEO.
