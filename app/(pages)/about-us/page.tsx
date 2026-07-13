@@ -1,4 +1,5 @@
 import React from "react";
+import { ButtonState, PageHeader } from "@/components";
 
 export default function AboutUs() {
   const values = [
@@ -17,20 +18,16 @@ export default function AboutUs() {
   ];
 
   return (
-    <div className="w-full py-16 sm:py-24 bg-zinc-50/30">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        {/* Header Section */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
-          <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-            About Our Organization
-          </span>
-          <h1 className="text-zinc-900 font-bold mt-2">
-            Driving Corporate Innovation & Engineering Excellence
-          </h1>
-          <p className="text-zinc-600 text-lg leading-relaxed mt-4">
-            Founded by a collaborative group of platform developers and systems architects, ARI Corp was established to help enterprise organizations scale safely.
-          </p>
-        </div>
+    <div className="w-full bg-zinc-50/30">
+      <PageHeader
+        title="About Us"
+        tagline="Founded by a collaborative group of platform developers and systems architects, ARI Corp was established to help enterprise organizations scale safely."
+        button={[
+          { text: "View Careers", type: ButtonState.PRIMARY },
+          { text: "Read Our Story", type: ButtonState.NEUTRAL }
+        ]}
+      />
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 sm:py-24">
 
         {/* Values grid */}
         <div className="mb-20">

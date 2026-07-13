@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export enum ButtonState {
     PRIMARY,
     SECONDAY,
@@ -20,7 +22,7 @@ export default function Buttion({ text, link, type }: ButtonType) {
             case ButtonState.SECONDAY:
                 return 'bg-sky-600 text-white';
             case ButtonState.NEUTRAL:
-                return 'bg-sky-400 text-white';
+                return 'bg-zinc-200 text-zinc-800';
             case ButtonState.ACCENT:
                 return 'bg-sky-200 text-white';
             default:
@@ -28,7 +30,17 @@ export default function Buttion({ text, link, type }: ButtonType) {
         }
     }
 
-    return <div className={`${getButtonClass()} rounded-xl my-3`}>
-        <div className="mx-6 my-4 font-medium">{text}</div>
-    </div>
+    if (link) {
+        return (
+            <Link href={link} className={`${getButtonClass()} rounded-xl inline-block hover:opacity-90 transition-opacity`}>
+                <div className="mx-6 my-4 font-medium">{text}</div>
+            </Link>
+        );
+    }
+
+    return (
+        <div className={`${getButtonClass()} rounded-xl cursor-default`}>
+            <div className="mx-6 my-4 font-medium">{text}</div>
+        </div>
+    );
 }

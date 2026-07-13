@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { ButtonState, PageHeader } from "@/components";
 
 export default function Clients() {
   const caseStudies = [
@@ -18,20 +19,16 @@ export default function Clients() {
   ];
 
   return (
-    <div className="w-full py-16 sm:py-24 bg-zinc-50/30">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        {/* Header Section */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
-          <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-            Client Success
-          </span>
-          <h1 className="text-zinc-900 font-bold mt-2">
-            Trusted by Enterprise Leaders
-          </h1>
-          <p className="text-zinc-600 text-lg leading-relaxed mt-4">
-            We partner with innovative organizations across finance, logistics, and tech to secure infrastructure, scale tools, and upskill teams.
-          </p>
-        </div>
+    <div className="w-full bg-zinc-50/30">
+      <PageHeader
+        title="Clients"
+        tagline="We partner with innovative organizations across finance, logistics, and tech to secure infrastructure, scale tools, and upskill teams."
+        button={[
+          { text: "Read Case Studies", type: ButtonState.PRIMARY },
+          { text: "Partner Ecosystem", type: ButtonState.NEUTRAL }
+        ]}
+      />
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 sm:py-24">
 
         {/* Case Studies Grid */}
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 mb-20">

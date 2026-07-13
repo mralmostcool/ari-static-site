@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { ButtonState, PageHeader } from "@/components";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -21,25 +22,23 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="w-full py-16 sm:py-24 bg-zinc-50/30">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+    <div className="w-full bg-zinc-50/30">
+      <PageHeader
+        title="Contact Us"
+        tagline="Ready to learn more about our software products, schedule a tailored engineering workshop, or discuss cloud performance consultancies? Reach out below."
+        button={[
+          { text: "Email Support", type: ButtonState.NEUTRAL }
+        ]}
+      />
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 sm:py-24">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left panel: Info */}
           <div>
-            <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-              Connect With Us
-            </span>
-            <h1 className="text-zinc-900 font-bold mt-2">
-              Let&apos;s Build Something Secure and Scalable
-            </h1>
-            <p className="text-zinc-600 text-lg leading-relaxed mt-6">
-              Ready to learn more about our software products, schedule a tailored engineering workshop, or discuss cloud performance consultancies? Reach out below.
-            </p>
-
-            <div className="mt-12 flex flex-col gap-6">
-              <div>
-                <h6 className="text-[10px] font-bold text-zinc-800 uppercase tracking-widest mb-1">
-                  Email
+            <h3 className="text-zinc-900 font-bold mb-6">Offices & Support</h3>
+            <div className="flex flex-col gap-8">
+              <div className="rounded-2xl border border-zinc-200 bg-white p-6">
+                <h6 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">
+                  Direct Email
                 </h6>
                 <p className="text-sm font-semibold text-zinc-700">
                   <a href="mailto:support@aricorp.com" className="hover:underline">
@@ -48,12 +47,11 @@ export default function ContactUs() {
                 </p>
               </div>
 
-              <div>
-                <h6 className="text-[10px] font-bold text-zinc-800 uppercase tracking-widest mb-1">
-                  Offices
+              <div className="rounded-2xl border border-zinc-200 bg-white p-6">
+                <h6 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-2">
+                  Silicon Valley Headquarters
                 </h6>
                 <p className="text-sm text-zinc-600 leading-relaxed">
-                  Silicon Valley Headquarters<br />
                   100 Enterprise Way, Suite 400<br />
                   CA 94025, United States
                 </p>

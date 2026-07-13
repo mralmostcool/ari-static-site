@@ -1,91 +1,68 @@
 import React from "react";
 import Link from "next/link";
+import { ButtonState, PageHeader } from "@/components";
 
 export default function Products() {
-  const products = [
+  const sectors = [
     {
-      id: "cloudsuite",
-      name: "ARI CloudSuite",
-      tagline: "Enterprise Cloud ERP",
-      description: "A centralized platform to manage cloud scaling, compute orchestration, and financial resource allocation across AWS, Azure, and GCP.",
-      features: ["Multi-cloud budget control", "Real-time orchestration", "Resource usage audits"],
-      badge: "Flagship"
+      title: "Maritime Solutions",
+      tagline: "Naval navigation & ship traffic",
+      description: "Full-mission navigation simulation, ship propulsion algorithm testing, and port congestion optimization frameworks.",
+      href: "/products/maritime"
     },
     {
-      id: "analytics",
-      name: "ARI Analytics",
-      tagline: "Predictive Intelligence Engines",
-      description: "Data processing tools integrated with custom ML models to extract business-critical operational bottlenecks and forecast market trends.",
-      features: ["Custom model deployment", "Anomaly alerts", "Executive dashboards"],
-      badge: "Popular"
+      title: "Defence Systems",
+      tagline: "Secure combat & tactical networks",
+      description: "Zero-trust combat system simulators, tactical encryption network validation, and supply chain logistics audits.",
+      href: "/products/defence"
     },
     {
-      id: "securepass",
-      name: "ARI SecurePass",
-      tagline: "Zero-Trust Identity Management",
-      description: "Ensure enterprise infrastructure is guarded with modern Zero-Trust validation, granular role assignment, and continuous compliance logs.",
-      features: ["SSO & SAML integration", "Automated compliance reports", "Biometric MFA support"],
-      badge: "Security"
+      title: "Aerospace Engineering",
+      tagline: "Flight dynamic & avionics modeling",
+      description: "Avionics cockpit simulations, high-altitude autopilot training systems, and collision-avoidance drone routing.",
+      href: "/products/aerospace"
     }
   ];
 
   return (
-    <div className="w-full py-16 sm:py-24 bg-zinc-50/30">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        {/* Header section */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
-          <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-            Products & Solutions
-          </span>
-          <h1 className="text-zinc-900 font-bold mt-2">
-            Engineered for Modern Enterprises
-          </h1>
-          <p className="text-zinc-600 text-lg leading-relaxed mt-4">
-            Explore our suites designed to optimize computation efficiency, secure sensitive company data, and predict workflow bottlenecks.
+    <div className="w-full bg-zinc-50/30">
+      <PageHeader
+        title="Products"
+        tagline="Ari Simulation empowers engineers and innovators to model, test, and perfect real-world systems virtually — reducing risk, cutting costs, and accelerating breakthroughs before they ever leave the lab."
+        button={[
+          { text: "Download Brochure", type: ButtonState.PRIMARY },
+          { text: "Request Demo", type: ButtonState.NEUTRAL }
+        ]}
+      />
+
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 sm:py-24">
+        <div className="mb-16 max-w-3xl">
+          <h2 className="text-zinc-900 font-bold mb-4">Sectors & Solutions</h2>
+          <p className="text-zinc-600 text-sm leading-relaxed">
+            Select an industry sector below to explore our bespoke simulation modules, testing suites, and dedicated software configurations.
           </p>
         </div>
 
-        {/* Product grid */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
-          {products.map((product) => (
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          {sectors.map((sector, idx) => (
             <div
-              key={product.id}
+              key={idx}
               className="flex flex-col justify-between rounded-3xl border border-zinc-200 bg-white p-8 transition-all hover:shadow-md hover:border-zinc-300"
             >
               <div>
-                <div className="flex items-center justify-between gap-4 mb-6">
-                  <span className="inline-flex items-center rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-800">
-                    {product.badge}
-                  </span>
-                  <span className="text-xs font-bold text-zinc-400">#0{products.indexOf(product) + 1}</span>
-                </div>
-                <h3 className="text-zinc-900 font-bold mb-1">{product.name}</h3>
-                <p className="text-xs font-semibold text-zinc-500 mb-6 uppercase tracking-wider">{product.tagline}</p>
+                <h3 className="text-zinc-900 font-bold mb-1">{sector.title}</h3>
+                <p className="text-xs font-semibold text-zinc-500 mb-6 uppercase tracking-wider">{sector.tagline}</p>
                 <p className="text-zinc-600 text-sm leading-relaxed mb-8">
-                  {product.description}
+                  {sector.description}
                 </p>
-                
-                <h6 className="text-[11px] font-bold text-zinc-800 uppercase tracking-widest mb-4">
-                  Key capabilities
-                </h6>
-                <ul className="flex flex-col gap-2.5 mb-8">
-                  {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-start text-xs text-zinc-600 gap-2">
-                      <svg className="h-4 w-4 text-zinc-800 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               <div className="pt-6 border-t border-zinc-100">
                 <Link
-                  href="/contact-us"
-                  className="flex h-11 w-full items-center justify-center rounded-full border border-zinc-200 bg-white text-xs font-semibold text-zinc-900 transition-all hover:bg-zinc-50"
+                  href={sector.href}
+                  className="flex h-11 w-full items-center justify-center rounded-full bg-zinc-900 text-xs font-semibold text-white transition-all hover:bg-zinc-800"
                 >
-                  Request Details
+                  Explore {sector.title.split(" ")[0]}
                 </Link>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { ButtonState, PageHeader } from "@/components";
 
 export default function Training() {
   const courses = [
@@ -24,20 +25,16 @@ export default function Training() {
   ];
 
   return (
-    <div className="w-full py-16 sm:py-24 bg-zinc-50/30">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        {/* Header Section */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
-          <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-            Professional Development
-          </span>
-          <h1 className="text-zinc-900 font-bold mt-2">
-            Upskill Your Engineering Division
-          </h1>
-          <p className="text-zinc-600 text-lg leading-relaxed mt-4">
-            Accelerate team capability through custom workshops and self-paced programs designed and instructed by certified platform architects.
-          </p>
-        </div>
+    <div className="w-full bg-zinc-50/30">
+      <PageHeader
+        title="Training"
+        tagline="Accelerate team capability through custom workshops and self-paced programs designed and instructed by certified platform architects."
+        button={[
+          { text: "Browse Cohorts", type: ButtonState.PRIMARY },
+          { text: "Custom Enterprise Syllabus", type: ButtonState.NEUTRAL }
+        ]}
+      />
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 sm:py-24">
 
         {/* Training options grid */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mb-20">

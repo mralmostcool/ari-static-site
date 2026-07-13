@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { ButtonState, PageHeader } from "@/components";
 
 export default function Newsroom() {
   const articles = [
@@ -27,20 +28,16 @@ export default function Newsroom() {
   ];
 
   return (
-    <div className="w-full py-16 sm:py-24 bg-zinc-50/30">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        {/* Header Section */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
-          <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-            Newsroom & Insights
-          </span>
-          <h1 className="text-zinc-900 font-bold mt-2">
-            The Latest from ARI Corp
-          </h1>
-          <p className="text-zinc-600 text-lg leading-relaxed mt-4">
-            Keep up with our platform product developments, company announcements, research insights, and training updates.
-          </p>
-        </div>
+    <div className="w-full bg-zinc-50/30">
+      <PageHeader
+        title="Newsroom"
+        tagline="Keep up with our platform product developments, company announcements, research insights, and training updates."
+        button={[
+          { text: "Subscribe to Newsletter", type: ButtonState.PRIMARY },
+          { text: "Media Kit", type: ButtonState.NEUTRAL }
+        ]}
+      />
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 sm:py-24">
 
         {/* Articles Grid */}
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
