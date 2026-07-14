@@ -1,7 +1,11 @@
-import React from "react";
-import { ButtonState, PageHeader, ProductCard } from "@/components";
+"use client";
+
+import React, { useState } from "react";
+import { ButtonState, PageHeader, ProductCard, ContactModal } from "@/components";
 
 export default function Aerospace() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const products = [
     {
       title: "Avionics System Modeling Suite",
@@ -41,8 +45,8 @@ export default function Aerospace() {
         title="Aerospace Engineering"
         tagline="Aviation simulation software, high-altitude autopilot training, and navigation algorithm modeling."
         button={[
-          { text: "Request Aerospace Demo", type: ButtonState.PRIMARY },
-          { text: "View Specs", type: ButtonState.NEUTRAL }
+          { text: "Download Brochure", type: ButtonState.NEUTRAL },
+          { text: "Contact Us", type: ButtonState.PRIMARY, onClick: () => setIsModalOpen(true) }
         ]}
       />
 
@@ -66,6 +70,12 @@ export default function Aerospace() {
           ))}
         </div>
       </div>
+
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        productName="Aerospace Engineering"
+      />
     </div>
   );
 }

@@ -1,7 +1,11 @@
-import React from "react";
-import { ButtonState, PageHeader, ProductCard } from "@/components";
+"use client";
+
+import React, { useState } from "react";
+import { ButtonState, PageHeader, ProductCard, ContactModal } from "@/components";
 
 export default function Defence() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const products = [
     {
       title: "Tactical Network Simulation Suite",
@@ -41,8 +45,8 @@ export default function Defence() {
         title="Defence Systems"
         tagline="Zero-trust combat simulation platforms, tactical network optimization, and vehicle engineering training models."
         button={[
-          { text: "Request Secure Briefing", type: ButtonState.PRIMARY },
-          { text: "Download Capabilities Brochure", type: ButtonState.NEUTRAL }
+          { text: "Download Brochure", type: ButtonState.NEUTRAL },
+          { text: "Contact Us", type: ButtonState.PRIMARY, onClick: () => setIsModalOpen(true) }
         ]}
       />
 
@@ -66,6 +70,12 @@ export default function Defence() {
           ))}
         </div>
       </div>
+
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        productName="Defence Systems"
+      />
     </div>
   );
 }

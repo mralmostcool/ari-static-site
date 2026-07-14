@@ -11,9 +11,10 @@ export interface ButtonType {
     text: string
     link?: string
     type?: ButtonState
+    onClick?: () => void
 }
 
-export default function Buttion({ text, link, type }: ButtonType) {
+export default function Buttion({ text, link, type, onClick }: ButtonType) {
 
     const getButtonClass = () => {
         switch (type) {
@@ -39,8 +40,8 @@ export default function Buttion({ text, link, type }: ButtonType) {
     }
 
     return (
-        <div className={`${getButtonClass()} rounded-xl cursor-default animate-all duration-[300ms]`}>
+        <button onClick={onClick} className={`${getButtonClass()} rounded-xl ${onClick ? 'cursor-pointer' : 'cursor-default'} animate-all duration-[300ms] outline-none border-none`}>
             <div className="mx-6 my-4 font-medium">{text}</div>
-        </div>
+        </button>
     );
 }

@@ -35,6 +35,7 @@ export default function PageHeader({
                     text={btn.text}
                     type={btn.type}
                     link={btn.link}
+                    onClick={btn.onClick}
                   />
                 ))}
               </div>
