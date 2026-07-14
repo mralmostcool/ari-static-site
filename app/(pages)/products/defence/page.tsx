@@ -1,25 +1,42 @@
 import React from "react";
-import Link from "next/link";
-import { ButtonState, PageHeader } from "@/components";
+import { ButtonState, PageHeader, ProductCard } from "@/components";
 
 export default function Defence() {
-  const capabilities = [
+  const products = [
     {
-      title: "Tactical Network Simulation",
-      description: "Model and test radio frequency interfaces, jamming patterns, and encrypted satellite link networks."
+      title: "Tactical Network Simulation Suite",
+      description: "Model and test high-frequency radio interfaces, jamming patterns, and encrypted satellite links in real-time tactical environments.",
+      imageSrc: "/placeholder-image.png",
+      productsIncluded: [
+        "RF Propagation Modeler",
+        "Encrypted Satellite Terminal Simulator",
+        "Jamming & Interference Emulator"
+      ]
     },
     {
-      title: "Armored Vehicle Simulation",
-      description: "Physically-accurate simulators designed to train crew members in navigation, tactical maneuvers, and operations."
+      title: "Armored Vehicle Simulators",
+      description: "Physically-accurate simulator platforms designed to train crew members in navigation, tactical maneuvers, and armored combat operations.",
+      imageSrc: "/placeholder-image.png",
+      productsIncluded: [
+        "Driver Trainer Simulator",
+        "Gunner Command Console",
+        "Tactical Operations Dispatch"
+      ]
     },
     {
-      title: "Logistics Optimization",
-      description: "Predict operational supply chain requirements, route planning safety, and warehouse dispatch algorithms."
+      title: "Logistics & Tactical Supply Planner",
+      description: "Operational supply chain models to optimize routing, route planning safety, and warehouse dispatch algorithms under extreme conditions.",
+      imageSrc: "/placeholder-image.png",
+      productsIncluded: [
+        "Dynamic Route Optimizer",
+        "Fuel Supply Line Modeler",
+        "Dispatch Scheduling Core"
+      ]
     }
   ];
 
   return (
-    <div className="w-full bg-zinc-50/30">
+    <div className="w-full bg-white">
       <PageHeader
         title="Defence Systems"
         tagline="Zero-trust combat simulation platforms, tactical network optimization, and vehicle engineering training models."
@@ -28,7 +45,7 @@ export default function Defence() {
           { text: "Download Capabilities Brochure", type: ButtonState.NEUTRAL }
         ]}
       />
-      
+
       <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 sm:py-24">
         <div className="mb-16 max-w-3xl">
           <h2 className="text-zinc-900 font-bold mb-4">Secure Mission & Systems Simulation</h2>
@@ -38,13 +55,14 @@ export default function Defence() {
         </div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {capabilities.map((cap, idx) => (
-            <div key={idx} className="rounded-3xl border border-zinc-200 bg-white p-8">
-              <h4 className="text-zinc-900 font-semibold mb-3">{cap.title}</h4>
-              <p className="text-zinc-500 text-sm leading-relaxed">
-                {cap.description}
-              </p>
-            </div>
+          {products.map((product, idx) => (
+            <ProductCard
+              key={idx}
+              title={product.title}
+              description={product.description}
+              imageSrc={product.imageSrc}
+              productsIncluded={product.productsIncluded}
+            />
           ))}
         </div>
       </div>

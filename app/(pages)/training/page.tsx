@@ -25,7 +25,7 @@ export default function Training() {
   ];
 
   return (
-    <div className="w-full bg-zinc-50/30">
+    <div className="w-full bg-white/30">
       <PageHeader
         title="Training"
         tagline="Accelerate team capability through custom workshops and self-paced programs designed and instructed by certified platform architects."

@@ -5,8 +5,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-zinc-200 bg-zinc-50 py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+    <footer className="w-full border-t border-zinc-200 bg-white py-12 sm:py-16">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 border">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
           {/* Brand/About info */}
           <div className="flex flex-col gap-4">
@@ -75,10 +75,10 @@ export default function Footer() {
             &copy; {currentYear} ARI Corp. All rights reserved. Only light theme enabled.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="text-[11px] text-zinc-400 hover:text-zinc-600 transition-colors">
+            <a href="/privacy-policy" className="text-[11px] text-zinc-400 hover:text-zinc-600 transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-[11px] text-zinc-400 hover:text-zinc-600 transition-colors">
+            <a href="/terms-of-service" className="text-[11px] text-zinc-400 hover:text-zinc-600 transition-colors">
               Terms of Service
             </a>
           </div>

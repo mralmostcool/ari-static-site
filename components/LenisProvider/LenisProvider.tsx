@@ -8,6 +8,30 @@ interface LenisProviderProps {
 }
 
 export function LenisProvider({ children }: LenisProviderProps) {
+  React.useEffect(() => {
+    // Automatically trigger a resize to recalculate document height on mount/content updates
+    const resizeHandler = () => {
+      window.dispatchEvent(new Event('resize'));
+    };
+
+    // Observe body height changes and notify window resize so Lenis recalculates bounds
+    const observer = new ResizeObserver(() => {
+      resizeHandler();
+    });
+
+    if (document.body) {
+      observer.observe(document.body);
+    }
+
+    // Secondary fallback to make sure height is correct shortly after mounting
+    const timer = setTimeout(resizeHandler, 100);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <ReactLenis
       root

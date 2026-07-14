@@ -35,7 +35,7 @@ export default function Products() {
   ];
 
   return (
-    <div className="w-full bg-zinc-50/30">
+    <div className="w-full bg-white/30">
       <PageHeader
         title="Products"
         tagline="Ari Simulation empowers engineers and innovators to model, test, and perfect real-world systems virtually — reducing risk, cutting costs, and accelerating breakthroughs before they ever leave the lab."
@@ -79,42 +79,6 @@ export default function Products() {
           </div>
         </div>
       </section>
-
-      {/* Sector Detail Cards */}
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 sm:py-24">
-        <div className="mb-12 max-w-3xl mx-auto text-center">
-          <h2 className="text-zinc-900 font-bold mb-4">Sectors &amp; Solutions</h2>
-          <p className="text-zinc-600 text-sm leading-relaxed">
-            Select an industry sector below to explore our bespoke simulation modules, testing suites, and dedicated software configurations.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {sectors.map((sector) => (
-            <div
-              key={sector.href}
-              className="flex flex-col justify-between rounded-3xl border border-zinc-200 bg-white p-8 transition-all hover:shadow-md hover:border-zinc-300"
-            >
-              <div>
-                <h3 className="text-zinc-900 font-bold mb-1">{sector.label}</h3>
-                <p className="text-xs font-semibold text-zinc-500 mb-6 uppercase tracking-wider">{sector.tagline}</p>
-                <p className="text-zinc-600 text-sm leading-relaxed mb-8">
-                  {sector.description}
-                </p>
-              </div>
-
-              <div className="pt-6 border-t border-zinc-100">
-                <Link
-                  href={sector.href}
-                  className="flex h-11 w-full items-center justify-center rounded-xl bg-zinc-900 text-xs font-semibold text-white transition-all hover:bg-zinc-800"
-                >
-                  Explore {sector.title}
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

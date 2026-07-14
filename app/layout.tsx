@@ -39,7 +39,7 @@ export default function RootLayout({
       lang='en'
       className={`${figtree.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className='min-h-full flex flex-col bg-zinc-50/50 text-zinc-950 font-sans'>
+      <body className='min-h-full flex flex-col bg-white/50 text-zinc-950 font-sans'>
         <LenisProvider>
           <ZoomBlocker />
           {children}

@@ -22,7 +22,7 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="w-full bg-zinc-50/30">
+    <div className="w-full bg-white/30">
       <PageHeader
         title="Contact Us"
         tagline="Ready to learn more about our software products, schedule a tailored engineering workshop, or discuss cloud performance consultancies? Reach out below."

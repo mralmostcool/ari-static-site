@@ -1,25 +1,42 @@
 import React from "react";
-import Link from "next/link";
-import { ButtonState, PageHeader } from "@/components";
+import { ButtonState, PageHeader, ProductCard } from "@/components";
 
 export default function Aerospace() {
-  const capabilities = [
+  const products = [
     {
-      title: "Avionics System Modeling",
-      description: "Test software flight displays, autopilot controls, and landing gear sequencing in real-time simulators."
+      title: "Avionics System Modeling Suite",
+      description: "Test software flight displays, autopilot controls, and landing gear sequencing in real-time simulators.",
+      imageSrc: "/placeholder-image.png",
+      productsIncluded: [
+        "Primary Flight Display (PFD) Modeler",
+        "Navigation Display Emulator",
+        "Autopilot Logic Verifier"
+      ]
     },
     {
-      title: "Atmospheric & Flight Physics",
-      description: "Accurate physical modeling of air flow, lift, crosswind forces, and high-altitude turbulences."
+      title: "Atmospheric & Flight Physics Core",
+      description: "Accurate physical modeling of air flow, lift, drag, crosswind forces, and high-altitude turbulences.",
+      imageSrc: "/placeholder-image.png",
+      productsIncluded: [
+        "Aerodynamic Wind Tunnel Modeler",
+        "Turbulence Profile Engine",
+        "Atmospheric Condition Builder"
+      ]
     },
     {
-      title: "Drone Swarm Operations",
-      description: "Simulate and verify swarm flight paths, collision-avoidance logic, and communication bandwidth configurations."
+      title: "Drone Swarm & UAV Operations",
+      description: "Simulate and verify swarm flight paths, collision-avoidance logic, and communication bandwidth configurations.",
+      imageSrc: "/placeholder-image.png",
+      productsIncluded: [
+        "Multi-UAV Path Planner",
+        "Collision Avoidance Simulator",
+        "Swarm Communication Mesh Modeler"
+      ]
     }
   ];
 
   return (
-    <div className="w-full bg-zinc-50/30">
+    <div className="w-full bg-white">
       <PageHeader
         title="Aerospace Engineering"
         tagline="Aviation simulation software, high-altitude autopilot training, and navigation algorithm modeling."
@@ -28,7 +45,7 @@ export default function Aerospace() {
           { text: "View Specs", type: ButtonState.NEUTRAL }
         ]}
       />
-      
+
       <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 sm:py-24">
         <div className="mb-16 max-w-3xl">
           <h2 className="text-zinc-900 font-bold mb-4">Flight Dynamics & Avionics Optimization</h2>
@@ -38,13 +55,14 @@ export default function Aerospace() {
         </div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {capabilities.map((cap, idx) => (
-            <div key={idx} className="rounded-3xl border border-zinc-200 bg-white p-8">
-              <h4 className="text-zinc-900 font-semibold mb-3">{cap.title}</h4>
-              <p className="text-zinc-500 text-sm leading-relaxed">
-                {cap.description}
-              </p>
-            </div>
+          {products.map((product, idx) => (
+            <ProductCard
+              key={idx}
+              title={product.title}
+              description={product.description}
+              imageSrc={product.imageSrc}
+              productsIncluded={product.productsIncluded}
+            />
           ))}
         </div>
       </div>

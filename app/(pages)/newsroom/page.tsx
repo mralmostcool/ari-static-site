@@ -28,7 +28,7 @@ export default function Newsroom() {
   ];
 
   return (
-    <div className="w-full bg-zinc-50/30">
+    <div className="w-full bg-white/30">
       <PageHeader
         title="Newsroom"
         tagline="Keep up with our platform product developments, company announcements, research insights, and training updates."

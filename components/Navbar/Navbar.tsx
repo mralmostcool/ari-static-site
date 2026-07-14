@@ -78,127 +78,127 @@ export default function Navbar() {
     <>
       <header className={headerClass}>
         <div className='mx-auto flex max-w-7xl py-5 px-5 md:px-8 items-center justify-between'>
-        {/* Logo */}
-        <Link href='/' className='flex items-center'>
-          <Image
-            src='/ari-logo.svg'
-            alt='ARI Corp Logo'
-            width={118}
-            height={74}
-            className={`h-[53px] sm:h-[64px] md:h-[74px] w-auto object-contain transition-all duration-300 ${isLightTheme ? 'brightness-0 invert' : ''
-              }`}
-            priority
-          />
-        </Link>
+          {/* Logo */}
+          <Link href='/' className='flex items-center'>
+            <Image
+              src='/ari-logo.svg'
+              alt='ARI Corp Logo'
+              width={118}
+              height={74}
+              className={`h-[53px] sm:h-[64px] md:h-[74px] w-auto object-contain transition-all duration-300 ${isLightTheme ? 'brightness-0 invert' : ''
+                }`}
+              priority
+            />
+          </Link>
 
-        {/* Desktop Nav Links */}
-        <nav className='hidden md:flex items-center gap-6'>
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-medium transition-colors ${isLightTheme
-                  ? isActive
-                    ? 'text-white font-semibold'
-                    : 'text-zinc-200 hover:text-white'
-                  : isActive
-                    ? 'text-zinc-950 font-semibold'
-                    : 'text-zinc-500 hover:text-zinc-950'
-                  }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* Desktop CTA */}
-        <div className='hidden md:flex items-center'>
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className={`flex h-12 items-center justify-center rounded-xl px-6 text-sm font-semibold transition-all ${isLightTheme
-              ? 'bg-surface-light text-primary-dark hover:bg-btn-neutral-sky'
-              : 'bg-primary-dark text-white hover:bg-primary'
-              }`}
-          >
-            Get in touch
-          </button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`flex items-center justify-center transition-all focus:outline-none md:hidden ${isLightTheme
-            ? 'text-zinc-200 hover:text-white'
-            : 'text-zinc-600 hover:text-zinc-950'
-            }`}
-          aria-label='Toggle Menu'
-        >
-          {isMobileMenuOpen ? (
-            <svg
-              className='h-8 w-8'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M6 18L18 6M6 6l12 12'
-              />
-            </svg>
-          ) : (
-            <svg
-              className='h-8 w-8'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M4 6h16M4 12h16M4 18h16'
-              />
-            </svg>
-          )}
-        </button>
-      </div>
-
-      {/* Mobile Nav Menu */}
-      {isMobileMenuOpen && (
-        <div className='border-b border-zinc-200 bg-white px-6 py-4 md:hidden'>
-          <nav className='flex flex-col gap-4'>
+          {/* Desktop Nav Links */}
+          <nav className='hidden md:flex items-center gap-6'>
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors ${isActive ? 'text-zinc-950 font-bold' : 'text-zinc-500'
+                  className={`text-sm font-medium transition-colors ${isLightTheme
+                    ? isActive
+                      ? 'text-white font-semibold'
+                      : 'text-zinc-200 hover:text-white'
+                    : isActive
+                      ? 'text-zinc-950 font-semibold'
+                      : 'text-zinc-500 hover:text-zinc-950'
                     }`}
                 >
                   {link.name}
                 </Link>
               );
             })}
-             <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsModalOpen(true);
-              }}
-              className='mt-2 flex h-12 w-full items-center justify-center rounded-xl bg-primary-dark text-sm font-semibold text-white hover:bg-primary transition-all'
+          </nav>
+
+          {/* Desktop CTA */}
+          <div className='hidden md:flex items-center'>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className={`flex h-12 items-center justify-center rounded-xl px-6 text-sm font-semibold transition-all ${isLightTheme
+                ? 'bg-surface-light text-primary-dark hover:bg-btn-neutral-sky'
+                : 'bg-primary-dark text-white hover:bg-primary'
+                }`}
             >
               Get in touch
             </button>
-          </nav>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={`flex items-center justify-center transition-all focus:outline-none md:hidden ${isLightTheme
+              ? 'text-zinc-200 hover:text-white'
+              : 'text-zinc-600 hover:text-zinc-950'
+              }`}
+            aria-label='Toggle Menu'
+          >
+            {isMobileMenuOpen ? (
+              <svg
+                className='h-8 w-8'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='M6 18L18 6M6 6l12 12'
+                />
+              </svg>
+            ) : (
+              <svg
+                className='h-8 w-8'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='M4 6h16M4 12h16M4 18h16'
+                />
+              </svg>
+            )}
+          </button>
         </div>
-      )}
-    </header>
+
+        {/* Mobile Nav Menu */}
+        {isMobileMenuOpen && (
+          <div className='border-b border-zinc-200 bg-white px-6 py-4 md:hidden'>
+            <nav className='flex flex-col gap-4'>
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`text-sm font-medium transition-colors ${isActive ? 'text-zinc-950 font-bold' : 'text-zinc-500'
+                      }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsModalOpen(true);
+                }}
+                className='mt-2 flex h-12 w-full items-center justify-center rounded-xl bg-primary-dark text-sm font-semibold text-white hover:bg-primary transition-all'
+              >
+                Get in touch
+              </button>
+            </nav>
+          </div>
+        )}
+      </header>
 
       {/* Contact Form Modal */}
       <AnimatePresence>
@@ -226,7 +226,7 @@ export default function Navbar() {
               <div className="hidden md:flex md:w-[42%] bg-sky-950 p-8 text-white flex-col justify-between relative overflow-hidden">
                 {/* Background structural overlay elements */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(14,165,233,0.15),transparent_60%)] pointer-events-none" />
-                
+
                 <div className="relative z-10">
                   {/* Monogram logo symbol */}
                   <div className="h-10 w-auto mb-8 flex items-center">
@@ -244,7 +244,7 @@ export default function Navbar() {
                   <p className="text-xs text-sky-200/80 leading-relaxed mt-2.5">
                     Over 28 years delivering custom-tailored simulation solutions for maritime, defence, and aviation sectors worldwide.
                   </p>
-                  
+
                   <div className="flex flex-col gap-4 mt-8">
                     <div className="flex items-start gap-3">
                       <svg className="h-4.5 w-4.5 text-sky-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -318,7 +318,7 @@ export default function Navbar() {
                       <p className="text-xs text-zinc-500 mt-1.5 mb-6">
                         Get expert guidance for the right solution.
                       </p>
-                      
+
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                         <div>
                           <label className="block text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-1.5">Full Name</label>
@@ -327,7 +327,7 @@ export default function Navbar() {
                             required
                             value={formData.fullName}
                             onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                            className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-zinc-900 bg-zinc-50/20"
+                            className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-zinc-900 bg-white/20"
                             placeholder="John Doe"
                           />
                         </div>
@@ -339,7 +339,7 @@ export default function Navbar() {
                             required
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-zinc-900 bg-zinc-50/20"
+                            className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-zinc-900 bg-white/20"
                             placeholder="john@example.com"
                           />
                         </div>
@@ -353,7 +353,7 @@ export default function Navbar() {
                             required
                             value={formData.organization}
                             onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                            className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-zinc-900 bg-zinc-50/20"
+                            className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-zinc-900 bg-white/20"
                             placeholder="Company / Agency"
                           />
                         </div>
@@ -365,7 +365,7 @@ export default function Navbar() {
                             required
                             value={formData.country}
                             onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                            className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-zinc-900 bg-zinc-50/20"
+                            className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-zinc-900 bg-white/20"
                             placeholder="United States"
                           />
                         </div>
@@ -378,7 +378,7 @@ export default function Navbar() {
                           required
                           value={formData.productName}
                           onChange={(e) => setFormData({ ...formData, productName: e.target.value })}
-                          className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-zinc-900 bg-zinc-50/20"
+                          className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-zinc-900 bg-white/20"
                           placeholder="e.g. Maritime Engine Room Simulator"
                         />
                       </div>
@@ -390,7 +390,7 @@ export default function Navbar() {
                           rows={5}
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          className="w-full h-full min-h-[100px] px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none text-zinc-900 bg-zinc-50/20"
+                          className="w-full h-full min-h-[100px] px-4 py-2.5 rounded-xl border border-zinc-200 text-sm placeholder-zinc-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none text-zinc-900 bg-white/20"
                           placeholder="Describe your simulation or training requirements..."
                         />
                       </div>

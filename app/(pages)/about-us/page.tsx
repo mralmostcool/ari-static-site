@@ -18,12 +18,12 @@ export default function AboutUs() {
   ];
 
   return (
-    <div className="w-full bg-zinc-50/30">
+    <div className="w-full bg-white/30">
       <PageHeader
         title="About Us"
         tagline="Founded by a collaborative group of platform developers and systems architects, ARI Corp was established to help enterprise organizations scale safely."
         button={[
-          { text: "View Careers", type: ButtonState.PRIMARY },
+          { text: "View Careers", type: ButtonState.PRIMARY, link: "/about-us/careers" },
           { text: "Read Our Story", type: ButtonState.NEUTRAL }
         ]}
       />
