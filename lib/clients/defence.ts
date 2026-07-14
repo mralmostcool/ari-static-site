@@ -1,0 +1,25 @@
+import { ClientType } from "./clientType"
+
+export const DEFENCE: ClientType[] = [
+    { name: "defence", logoLocation: "/clients/defence/defence-01.png", type: "defence", width: 400, height: 760 },
+    { name: "defence", logoLocation: "/clients/defence/defence-02.png", type: "defence", width: 250, height: 298 },
+    { name: "defence", logoLocation: "/clients/defence/defence-03.png", type: "defence", width: 960, height: 730 },
+    { name: "defence", logoLocation: "/clients/defence/defence-04.png", type: "defence", width: 185, height: 273 },
+    { name: "defence", logoLocation: "/clients/defence/defence-05.png", type: "defence", width: 447, height: 558 },
+    { name: "defence", logoLocation: "/clients/defence/defence-06.png", type: "defence", width: 219, height: 179 },
+    { name: "defence", logoLocation: "/clients/defence/defence-07.png", type: "defence", width: 3840, height: 1049 },
+    { name: "defence", logoLocation: "/clients/defence/defence-08.png", type: "defence", width: 4804, height: 6492 },
+    { name: "defence", logoLocation: "/clients/defence/defence-09.png", type: "defence", width: 300, height: 300 },
+    { name: "defence", logoLocation: "/clients/defence/defence-10.png", type: "defence", width: 960, height: 1200 },
+    { name: "defence", logoLocation: "/clients/defence/defence-11.png", type: "defence", width: 325, height: 260 },
+    { name: "defence", logoLocation: "/clients/defence/defence-12.png", type: "defence", width: 1280, height: 1280 },
+    { name: "defence", logoLocation: "/clients/defence/defence-13.png", type: "defence", width: 2160, height: 2577 },
+    { name: "defence", logoLocation: "/clients/defence/defence-14.png", type: "defence", width: 798, height: 798 },
+    { name: "defence", logoLocation: "/clients/defence/defence-15.png", type: "defence", width: 511, height: 452 },
+    { name: "defence", logoLocation: "/clients/defence/defence-16.png", type: "defence", width: 845, height: 850 },
+    { name: "defence", logoLocation: "/clients/defence/defence-17.png", type: "defence", width: 320, height: 320 },
+    { name: "defence", logoLocation: "/clients/defence/defence-18.png", type: "defence", width: 1064, height: 508 },
+    { name: "defence", logoLocation: "/clients/defence/defence-19.png", type: "defence", width: 880, height: 269 },
+    { name: "defence", logoLocation: "/clients/defence/defence-20.png", type: "defence", width: 600, height: 600 },
+    { name: "defence", logoLocation: "/clients/defence/defence-21.png", type: "defence", width: 1920, height: 2231 },
+]
