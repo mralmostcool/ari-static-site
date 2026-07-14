@@ -2,12 +2,12 @@ import { ClientType } from "./clientType"
 
 export const MARITIME: ClientType[] = [
     { name: "maritime", logoLocation: "/clients/maritime/maritime-01.png", type: "maritime", width: 1280, height: 796 },
-    { name: "maritime", logoLocation: "/clients/maritime/maritime-02.png", type: "maritime", width: 1600, height: 1000 },
+    { name: "maritime", logoLocation: "/clients/maritime/maritime-02.png", type: "maritime", width: 2100, height: 1000 },
     { name: "maritime", logoLocation: "/clients/maritime/maritime-03.png", type: "maritime", width: 1065, height: 1065 },
     { name: "maritime", logoLocation: "/clients/maritime/maritime-04.png", type: "maritime", width: 1280, height: 1187 },
     { name: "maritime", logoLocation: "/clients/maritime/maritime-05.png", type: "maritime", width: 298, height: 115 },
     { name: "maritime", logoLocation: "/clients/maritime/maritime-06.png", type: "maritime", width: 960, height: 1281 },
-    { name: "maritime", logoLocation: "/clients/maritime/maritime-07.png", type: "maritime", width: 1280, height: 640 },
+    { name: "maritime", logoLocation: "/clients/maritime/maritime-07.png", type: "maritime", width: 1280, height: 600 },
     { name: "maritime", logoLocation: "/clients/maritime/maritime-08.png", type: "maritime", width: 2020, height: 382 },
     { name: "maritime", logoLocation: "/clients/maritime/maritime-09.png", type: "maritime", width: 320, height: 320 },
     { name: "maritime", logoLocation: "/clients/maritime/maritime-10.png", type: "maritime", width: 700, height: 565 },

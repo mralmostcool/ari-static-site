@@ -1,7 +1,7 @@
 import { ClientType } from "./clientType"
 
 export const OEM: ClientType[] = [
-    { name: "oem", logoLocation: "/clients/oem-partners/oem-1.png", type: "oem", width: 3000, height: 2000 },
+    { name: "oem", logoLocation: "/clients/oem-partners/oem-1.png", type: "oem", width: 3000, height: 1000 },
     { name: "oem", logoLocation: "/clients/oem-partners/oem-2.png", type: "oem", width: 960, height: 450 },
     { name: "oem", logoLocation: "/clients/oem-partners/oem-3.png", type: "oem", width: 2560, height: 932 },
     { name: "oem", logoLocation: "/clients/oem-partners/oem-4.png", type: "oem", width: 500, height: 500 },

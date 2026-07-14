@@ -472,7 +472,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
@@ -486,12 +486,12 @@ export default function Home() {
                 className="flex flex-col items-center text-center p-8 md:px-12 md:py-6 first:pl-0 last:pr-0 transition-all duration-300"
               >
                 <div className="mb-6 h-16 flex items-center justify-center">
-                  <Image 
-                    src={cert.logo} 
-                    width={110} 
-                    height={55} 
-                    alt={`${cert.title} Logo`} 
-                    className={`${cert.logoClass || 'h-10 w-auto'} object-contain filter grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-300`}
+                  <Image
+                    src={cert.logo}
+                    width={110}
+                    height={55}
+                    alt={`${cert.title} Logo`}
+                    className={`${cert.logoClass || 'h-10 w-auto'} object-contain filter opacity-90 hover:opacity-100 transition-all duration-300`}
                   />
                 </div>
                 <h4 className="text-lg font-bold text-primary-dark mb-3">{cert.title}</h4>

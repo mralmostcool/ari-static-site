@@ -23,24 +23,27 @@ function ClientSection({
       </div>
 
       {/* Logo grid with shared border lines */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 border-t border-l border-zinc-200">
+      {/* grid-flow-dense lets the browser auto-fill any gaps left by col-span-2
+          (wide) cells with the next available normal-size logo, so a stray
+          empty cell at the end of a row gets backfilled automatically. */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-flow-dense border-t border-l border-zinc-200">
         {clients.map((client, idx) => {
           const isWide =
             client.width && client.height && client.width > 2 * client.height;
           return (
             <div
               key={idx}
-              className={`flex items-center justify-center border-b border-r border-zinc-200 py-6 px-4${
-                isWide ? " col-span-2" : ""
-              }`}
+              className={`flex items-center justify-center border-b border-r border-zinc-200 py-6 px-4${isWide ? " col-span-2" : ""
+                }`}
             >
               {client.logoLocation && (
                 <Image
                   src={client.logoLocation}
                   alt={client.name ?? title}
-                  width={140}
+                  width={isWide ? 280 : 140}
                   height={140}
-                  className="w-[140px] h-[140px] object-contain"
+                  className={`h-[140px] object-contain${isWide ? " w-[280px]" : " w-[140px]"
+                    }`}
                 />
               )}
             </div>
@@ -91,67 +94,6 @@ export default function Clients() {
           clients={OEM_CLIENTS}
         />
       </div>
-
-      {/* ── Case Studies & Testimonial ── */}
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 pb-16 sm:pb-24">
-        {/* Case Studies Grid */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 mb-20">
-          {caseStudies.map((cs, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col justify-between rounded-3xl border border-zinc-200 bg-white p-8 transition-all hover:shadow-md hover:border-zinc-300"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-8">
-                  <span className="text-xs font-bold text-zinc-800 uppercase tracking-widest">
-                    {cs.company}
-                  </span>
-                  <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-800">
-                    Case Study
-                  </span>
-                </div>
-                <h3 className="text-zinc-900 font-bold mb-4">{cs.headline}</h3>
-                <p className="text-zinc-600 text-sm leading-relaxed mb-8">
-                  {cs.details}
-                </p>
-              </div>
-              <div className="pt-6 border-t border-zinc-100 flex items-center justify-between">
-                <span className="text-sm font-bold text-zinc-900">
-                  {cs.stat}
-                </span>
-                <Link
-                  href="/contact-us"
-                  className="text-xs font-bold text-zinc-900 hover:text-zinc-700"
-                >
-                  Read details
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Testimonial Quote */}
-        <div className="rounded-3xl bg-zinc-900 p-8 sm:p-12 text-white">
-          <blockquote className="max-w-3xl">
-            <p className="text-lg sm:text-xl font-medium leading-relaxed font-sans">
-              &ldquo;ARI Corp has been pivotal in upskilling our engineering
-              divisions. Their zero-trust training curriculum shifted our
-              development practices toward robust security safeguards from day
-              one.&rdquo;
-            </p>
-            <footer className="mt-6 flex flex-col sm:flex-row sm:items-center gap-2">
-              <span className="text-sm font-bold text-white">
-                Sarah Jenkins
-              </span>
-              <span className="hidden sm:inline text-zinc-400">•</span>
-              <span className="text-xs text-zinc-400 font-semibold uppercase tracking-wider">
-                VP of Platform Engineering, Nexus Finance
-              </span>
-            </footer>
-          </blockquote>
-        </div>
-      </div>
     </div>
   );
 }
-
