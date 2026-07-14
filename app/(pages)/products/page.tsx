@@ -41,7 +41,7 @@ export default function Products() {
         tagline="Ari Simulation empowers engineers and innovators to model, test, and perfect real-world systems virtually — reducing risk, cutting costs, and accelerating breakthroughs before they ever leave the lab."
         button={[
           { text: "Download Brochure", type: ButtonState.PRIMARY },
-          { text: "Request Demo", type: ButtonState.NEUTRAL }
+          { text: "Request Demo", type: ButtonState.NEUTRAL, link: "/contact-us" }
         ]}
       />
 

@@ -22,7 +22,7 @@ export default function Buttion({ text, link, type }: ButtonType) {
             case ButtonState.SECONDAY:
                 return 'bg-accent text-white hover:bg-primary';
             case ButtonState.NEUTRAL:
-                return 'bg-btn-neutral-sky text-primary-dark border border-sky-100 hover:bg-btn-neutral-slate';
+                return 'bg-btn-neutral-sky text-primary-dark border border-sky-100 hover:bg-slate-200';
             case ButtonState.ACCENT:
                 return 'bg-highlight text-white hover:bg-highlight/90';
             default:
@@ -32,14 +32,14 @@ export default function Buttion({ text, link, type }: ButtonType) {
 
     if (link) {
         return (
-            <Link href={link} className={`${getButtonClass()} rounded-xl inline-block hover:opacity-90 transition-opacity`}>
+            <Link href={link} className={`${getButtonClass()} rounded-xl inline-block hover:opacity-90 transition-opacity `}>
                 <div className="mx-6 my-4 font-medium">{text}</div>
             </Link>
         );
     }
 
     return (
-        <div className={`${getButtonClass()} rounded-xl cursor-default`}>
+        <div className={`${getButtonClass()} rounded-xl cursor-default animate-all duration-[300ms]`}>
             <div className="mx-6 my-4 font-medium">{text}</div>
         </div>
     );

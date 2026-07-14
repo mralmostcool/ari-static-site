@@ -26,9 +26,6 @@ export default function ContactUs() {
       <PageHeader
         title="Contact Us"
         tagline="Ready to learn more about our software products, schedule a tailored engineering workshop, or discuss cloud performance consultancies? Reach out below."
-        button={[
-          { text: "Email Support", type: ButtonState.NEUTRAL }
-        ]}
       />
       <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 sm:py-24">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
