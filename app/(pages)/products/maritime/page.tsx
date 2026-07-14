@@ -28,6 +28,7 @@ export default function Maritime() {
               description={product.description}
               imageSrc={product.imageSrc}
               productsIncluded={product.productsIncluded}
+              sector="maritime"
             />
           ))}
         </div>

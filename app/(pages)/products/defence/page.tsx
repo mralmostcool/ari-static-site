@@ -28,6 +28,7 @@ export default function Defence() {
               description={product.description}
               imageSrc={product.imageSrc}
               productsIncluded={product.productsIncluded}
+              sector="defence"
             />
           ))}
         </div>

@@ -28,6 +28,7 @@ export default function Aerospace() {
               description={product.description}
               imageSrc={product.imageSrc}
               productsIncluded={product.productsIncluded}
+              sector="aerospace"
             />
           ))}
         </div>
