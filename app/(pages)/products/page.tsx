@@ -60,7 +60,7 @@ export default function Products() {
               <div className="pt-6 border-t border-zinc-100">
                 <Link
                   href={sector.href}
-                  className="flex h-11 w-full items-center justify-center rounded-full bg-zinc-900 text-xs font-semibold text-white transition-all hover:bg-zinc-800"
+                  className="flex h-11 w-full items-center justify-center rounded-xl bg-zinc-900 text-xs font-semibold text-white transition-all hover:bg-zinc-800"
                 >
                   Explore {sector.title.split(" ")[0]}
                 </Link>

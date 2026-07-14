@@ -61,7 +61,7 @@ export default function Training() {
               <div className="pt-6 border-t border-zinc-100">
                 <Link
                   href="/contact-us"
-                  className="flex h-11 w-full items-center justify-center rounded-full bg-zinc-900 text-xs font-semibold text-white transition-all hover:bg-zinc-800"
+                  className="flex h-11 w-full items-center justify-center rounded-xl bg-zinc-900 text-xs font-semibold text-white transition-all hover:bg-zinc-800"
                 >
                   Request Syllabus
                 </Link>
@@ -78,7 +78,7 @@ export default function Training() {
           </p>
           <Link
             href="/contact-us"
-            className="inline-flex h-11 items-center justify-center rounded-full bg-zinc-900 px-6 text-xs font-semibold text-white transition-all hover:bg-zinc-800"
+            className="inline-flex h-11 items-center justify-center rounded-xl bg-zinc-900 px-6 text-xs font-semibold text-white transition-all hover:bg-zinc-800"
           >
             Schedule Consultation
           </Link>

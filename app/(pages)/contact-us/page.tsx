@@ -162,7 +162,7 @@ export default function ContactUs() {
 
                 <button
                   type="submit"
-                  className="flex h-12 w-full items-center justify-center rounded-full bg-zinc-900 text-sm font-semibold text-white transition-all hover:bg-zinc-800"
+                  className="flex h-12 w-full items-center justify-center rounded-xl bg-zinc-900 text-sm font-semibold text-white transition-all hover:bg-zinc-800"
                 >
                   Send Message
                 </button>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Figtree, Inter } from 'next/font/google';
 import './globals.css';
+import { LenisProvider } from '@/components';
 
 const figtree = Figtree({
   variable: '--font-figtree',
@@ -31,7 +32,9 @@ export default function RootLayout({
       className={`${figtree.variable} ${inter.variable} h-full antialiased`}
     >
       <body className='min-h-full flex flex-col bg-zinc-50/50 text-zinc-950 font-sans'>
-        {children}
+        <LenisProvider>
+          {children}
+        </LenisProvider>
       </body>
     </html>
   );
