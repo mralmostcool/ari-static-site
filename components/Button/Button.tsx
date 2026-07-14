@@ -18,15 +18,15 @@ export default function Buttion({ text, link, type }: ButtonType) {
     const getButtonClass = () => {
         switch (type) {
             case ButtonState.PRIMARY:
-                return 'bg-sky-800 text-white';
+                return 'bg-primary text-white hover:bg-primary-dark';
             case ButtonState.SECONDAY:
-                return 'bg-sky-600 text-white';
+                return 'bg-accent text-white hover:bg-primary';
             case ButtonState.NEUTRAL:
-                return 'bg-zinc-200 text-zinc-800';
+                return 'bg-btn-neutral-sky text-primary-dark border border-sky-100 hover:bg-btn-neutral-slate';
             case ButtonState.ACCENT:
-                return 'bg-sky-200 text-white';
+                return 'bg-highlight text-white hover:bg-highlight/90';
             default:
-                return 'bg-sky-800 text-white';
+                return 'bg-primary text-white hover:bg-primary-dark';
         }
     }
 

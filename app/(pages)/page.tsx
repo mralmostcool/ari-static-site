@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface CounterProps {
   value: number;
@@ -38,6 +39,71 @@ function Counter({ value, suffix = "" }: CounterProps) {
   );
 }
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 35 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring' as const,
+      damping: 25,
+      stiffness: 120,
+    },
+  },
+};
+
+const certifications = [
+  {
+    logo: "/landing/certificates/logo-DNV.png",
+    name: "DNV",
+    title: "Full-Range DNV Approval",
+    text: "DNV approval for the entire range of maritime & offshore simulation products.",
+    logoClass: "h-14 md:h-16 w-auto",
+    scope: [
+      "Maritime Simulation Systems Validation",
+      "Offshore Operations Products Approval",
+      "International Maritime Standards Compliance",
+      "Class A, B, C & D Simulator Certification"
+    ]
+  },
+  {
+    logo: "/landing/certificates/logo-LRQA.png",
+    name: "LRQA",
+    title: "Certified at Every Level",
+    text: "Certifications for Simulators, Training, EMS (Environmental), OH&S (Occupational Health & Safety), ISMS (Information Security).",
+    logoClass: "h-10 md:h-11 w-auto",
+    scope: [
+      "Quality Management System (ISO 9001)",
+      "Environmental Management System (ISO 14001)",
+      "Occupational Health & Safety (ISO 45001)",
+      "Information Security Management System (ISO 27001)"
+    ]
+  },
+  {
+    logo: "/landing/certificates/logo-Defence.png",
+    name: "Defence",
+    title: "Defence-Grade Track Record",
+    text: "Proven supplier to Defence establishments.",
+    logoClass: "h-10 md:h-11 w-auto",
+    scope: [
+      "Military Combat Training Environments",
+      "Tactical Simulation Systems Delivery",
+      "High-Security Government Verification",
+      "Joint Operations Simulation Readiness"
+    ]
+  }
+];
+
 export default function Home() {
   return (
     <div className="w-full">
@@ -51,7 +117,7 @@ export default function Home() {
           priority
           className="object-cover object-center z-0"
         />
-        
+
         {/* Gradient Overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-sky-950/60 via-sky-900/30 to-sky-950/90 z-10" />
 
@@ -72,13 +138,13 @@ export default function Home() {
               <div className="flex flex-col gap-4 sm:flex-row justify-start w-full sm:w-auto">
                 <Link
                   href="/contact-us"
-                  className="flex h-12 items-center justify-center rounded-xl bg-white px-6 text-sm font-semibold text-sky-900 transition-all hover:bg-sky-50 shadow-sm"
+                  className="flex h-12 items-center justify-center rounded-xl bg-surface-light px-6 text-sm font-semibold text-primary-dark transition-all hover:bg-btn-neutral-sky shadow-sm"
                 >
                   Request A Demo
                 </Link>
                 <Link
                   href="/products"
-                  className="flex h-12 items-center justify-center rounded-xl border border-sky-600/30 bg-sky-700/30 px-6 text-sm font-semibold text-white transition-all hover:bg-sky-700/50"
+                  className="flex h-12 items-center justify-center rounded-xl border border-accent/30 bg-accent/20 px-6 text-sm font-semibold text-white transition-all hover:bg-accent/40"
                 >
                   Our Products
                 </Link>
@@ -96,7 +162,7 @@ export default function Home() {
                   <Counter value={1500} suffix="+" />
                 </p>
                 <p className="text-xs text-sky-200 font-semibold uppercase tracking-wider mt-2.5 leading-relaxed">
-                  Installations<br/>worldwide
+                  Installations<br />worldwide
                 </p>
               </div>
               <div>
@@ -104,7 +170,7 @@ export default function Home() {
                   <Counter value={28} suffix="+" />
                 </p>
                 <p className="text-xs text-sky-200 font-semibold uppercase tracking-wider mt-2.5 leading-relaxed">
-                  Years of<br/>experience
+                  Years of<br />experience
                 </p>
               </div>
               <div>
@@ -112,7 +178,7 @@ export default function Home() {
                   <Counter value={55} suffix="+" />
                 </p>
                 <p className="text-xs text-sky-200 font-semibold uppercase tracking-wider mt-2.5 leading-relaxed">
-                  Copyrights<br/>and patents
+                  Copyrights<br />and patents
                 </p>
               </div>
               <div>
@@ -120,7 +186,7 @@ export default function Home() {
                   <Counter value={60} suffix="+" />
                 </p>
                 <p className="text-xs text-sky-200 font-semibold uppercase tracking-wider mt-2.5 leading-relaxed">
-                  Number of<br/>countries
+                  Number of<br />countries
                 </p>
               </div>
             </div>
@@ -128,67 +194,313 @@ export default function Home() {
         </section>
       </div>
 
-      {/* Core Services/Offerings Grid */}
-      <section className="py-24 sm:py-32">
+      {/* Solutions Sectors Section */}
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <div className="flex flex-col gap-12 sm:gap-16">
-            <div className="max-w-2xl">
-              <h2 className="text-zinc-900 font-bold">What We Deliver</h2>
-              <p className="text-zinc-600 text-base leading-relaxed mt-2">
-                We combine industry-leading software products with tailored technical workshops to drive corporate efficiency.
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto mb-8 md:mb-10"
+          >
+            <h2 className="text-3xl sm:text-[2.6rem] font-bold text-primary-dark tracking-tight leading-[1.2] sm:leading-[1.15] text-balance mx-auto max-w-2xl">
+              Advanced Solutions for Defence, Maritime & Aerospace
+            </h2>
+            <p className="text-primary-dark/80 text-base md:text-lg leading-relaxed mt-4 max-w-2xl mx-auto">
+              ARI delivers advanced simulation and virtual training solutions for defence, maritime, and aerospace operations worldwide.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 gap-5 md:grid-cols-3"
+          >
+            {/* Sector Card 1: Defence */}
+            <motion.div variants={cardVariants} className="group">
+              <Link
+                href="/products/defence"
+                className="relative flex aspect-[4/3] w-full overflow-hidden rounded-2xl bg-zinc-950/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1.5 border border-sky-950/5"
+              >
+                <Image
+                  src="/placeholder-image.png"
+                  alt="Defence Sector"
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-0.5"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity duration-300 group-hover:opacity-90" />
+                <div className="absolute inset-0 z-20 flex flex-col justify-end p-8 text-white">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-2xl font-bold tracking-tight text-white transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                      Defence
+                    </h3>
+                    <span className="text-xl font-bold text-sky-300 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                      &rarr;
+                    </span>
+                  </div>
+                  <div className="h-[2px] w-0 bg-gradient-to-r from-sky-500 to-sky-300 mt-3 transition-all duration-500 ease-out group-hover:w-full" />
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* Sector Card 2: Maritime */}
+            <motion.div variants={cardVariants} className="group">
+              <Link
+                href="/products/maritime"
+                className="relative flex aspect-[4/3] w-full overflow-hidden rounded-2xl bg-zinc-950/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1.5 border border-sky-950/5"
+              >
+                <Image
+                  src="/placeholder-image.png"
+                  alt="Maritime Sector"
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-0.5"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity duration-300 group-hover:opacity-90" />
+                <div className="absolute inset-0 z-20 flex flex-col justify-end p-8 text-white">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-2xl font-bold tracking-tight text-white transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                      Maritime
+                    </h3>
+                    <span className="text-xl font-bold text-sky-300 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                      &rarr;
+                    </span>
+                  </div>
+                  <div className="h-[2px] w-0 bg-gradient-to-r from-sky-500 to-sky-300 mt-3 transition-all duration-500 ease-out group-hover:w-full" />
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* Sector Card 3: Aerospace */}
+            <motion.div variants={cardVariants} className="group">
+              <Link
+                href="/products/aerospace"
+                className="relative flex aspect-[4/3] w-full overflow-hidden rounded-2xl bg-zinc-950/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1.5 border border-sky-950/5"
+              >
+                <Image
+                  src="/placeholder-image.png"
+                  alt="Aerospace Sector"
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-0.5"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity duration-300 group-hover:opacity-90" />
+                <div className="absolute inset-0 z-20 flex flex-col justify-end p-8 text-white">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-2xl font-bold tracking-tight text-white transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                      Aerospace
+                    </h3>
+                    <span className="text-xl font-bold text-sky-300 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                      &rarr;
+                    </span>
+                  </div>
+                  <div className="h-[2px] w-0 bg-gradient-to-r from-sky-500 to-sky-300 mt-3 transition-all duration-500 ease-out group-hover:w-full" />
+                </div>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Demanding Industries Section */}
+      <section className="py-24 sm:py-32 bg-white">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8">
+          <div className="flex flex-col gap-8 md:gap-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto"
+            >
+              <h2 className="text-3xl sm:text-[2.6rem] font-bold text-primary-dark tracking-tight leading-[1.2] sm:leading-[1.15] text-balance mx-auto max-w-2xl">
+                Built for the world's most demanding industries
+              </h2>
+              <p className="text-primary-dark/85 text-base md:text-lg leading-relaxed mt-4 max-w-2xl text-balance mx-auto">
+                From a single simulator to a fully integrated, large-scale training platform - ARI&nbsp;delivers&nbsp;where&nbsp;it&nbsp;counts.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              {/* Card 1 */}
-              <div className="rounded-2xl border border-zinc-200 bg-white p-8 transition-all hover:shadow-md hover:border-zinc-300">
-                 <div className="text-zinc-900 mb-6 flex items-center">
-                   <svg className="h-7 w-7 text-sky-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                   </svg>
-                 </div>
-                <h4 className="text-zinc-900 font-semibold mb-2">Bespoke Software</h4>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-100px" }}
+              className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+            >
+              {/* Card 1: Global Reach */}
+              <motion.div
+                variants={cardVariants}
+                className="relative flex flex-col rounded-2xl border border-sky-200 bg-surface-light p-8 transition-all duration-300 hover:shadow-lg hover:border-primary/30 hover:-translate-y-1"
+              >
+                <div className="mb-6 flex items-center">
+                  <Image
+                    src="/landing/icon-globe.svg"
+                    width={32}
+                    height={32}
+                    alt="Global Reach"
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+                <h4 className="text-xl font-bold text-primary-dark mb-3">Global Reach</h4>
                 <p className="text-zinc-500 text-sm leading-relaxed">
-                  Enterprise-grade platforms and integrations tailored specifically to optimize corporate workflows and system performance.
+                  A worldwide leader in simulation and VR training solutions for the maritime, energy, construction, airport, and defence industries.
                 </p>
-                <Link href="/products" className="inline-flex items-center text-xs font-semibold text-zinc-900 hover:text-zinc-700 mt-6 gap-1 group">
-                  Learn more <span className="transition-transform group-hover:translate-x-0.5">→</span>
-                </Link>
-              </div>
+              </motion.div>
 
-              {/* Card 2 */}
-              <div className="rounded-2xl border border-zinc-200 bg-white p-8 transition-all hover:shadow-md hover:border-zinc-300">
-                 <div className="text-zinc-900 mb-6 flex items-center">
-                   <svg className="h-7 w-7 text-sky-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.832.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                   </svg>
-                 </div>
-                <h4 className="text-zinc-900 font-semibold mb-2">Professional Training</h4>
+              {/* Card 2: Scalable Platform */}
+              <motion.div
+                variants={cardVariants}
+                className="relative flex flex-col rounded-2xl border border-sky-200 bg-surface-light p-8 transition-all duration-300 hover:shadow-lg hover:border-primary/30 hover:-translate-y-1"
+              >
+                <div className="mb-6 flex items-center">
+                  <Image
+                    src="/landing/icon-layers.svg"
+                    width={32}
+                    height={32}
+                    alt="Scalable Platform"
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+                <h4 className="text-xl font-bold text-primary-dark mb-3">Scalable Platform</h4>
                 <p className="text-zinc-500 text-sm leading-relaxed">
-                  Tailored development courses and workshops designed to upskill engineering and management teams with the latest methodologies.
+                  Simulation systems that work equally well as compact standalone units or as fully integrated, large-scale, multi-operator training environments.
                 </p>
-                <Link href="/training" className="inline-flex items-center text-xs font-semibold text-zinc-900 hover:text-zinc-700 mt-6 gap-1 group">
-                  Learn more <span className="transition-transform group-hover:translate-x-0.5">→</span>
-                </Link>
-              </div>
+              </motion.div>
 
-              {/* Card 3 */}
-              <div className="rounded-2xl border border-zinc-200 bg-white p-8 transition-all hover:shadow-md hover:border-zinc-300">
-                 <div className="text-zinc-900 mb-6 flex items-center">
-                   <svg className="h-7 w-7 text-sky-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                   </svg>
-                 </div>
-                <h4 className="text-zinc-900 font-semibold mb-2">Technical Advisory</h4>
+              {/* Card 3: Design & Development */}
+              <motion.div
+                variants={cardVariants}
+                className="relative flex flex-col rounded-2xl border border-sky-200 bg-surface-light p-8 transition-all duration-300 hover:shadow-lg hover:border-primary/30 hover:-translate-y-1"
+              >
+                <div className="mb-6 flex items-center">
+                  <Image
+                    src="/landing/icon-design-development.svg"
+                    width={32}
+                    height={32}
+                    alt="Design & Development"
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+                <h4 className="text-xl font-bold text-primary-dark mb-3">Design & Development</h4>
                 <p className="text-zinc-500 text-sm leading-relaxed">
-                  Strategic guidance on engineering scale, cloud architecture audit, and transition frameworks for complex environments.
+                  We engineer high-specification simulation systems purpose-built for training, screening, feasibility analysis, and process development.
                 </p>
-                <Link href="/about-us" className="inline-flex items-center text-xs font-semibold text-zinc-900 hover:text-zinc-700 mt-6 gap-1 group">
-                  Learn more <span className="transition-transform group-hover:translate-x-0.5">→</span>
-                </Link>
-              </div>
-            </div>
+              </motion.div>
+
+              {/* Card 4: Trusted by Industry Leaders */}
+              <motion.div
+                variants={cardVariants}
+                className="relative flex flex-col rounded-2xl border border-sky-200 bg-surface-light p-8 transition-all duration-300 hover:shadow-lg hover:border-primary/30 hover:-translate-y-1"
+              >
+                <div className="mb-6 flex items-center">
+                  <Image
+                    src="/landing/icon-trusted-leaders.svg"
+                    width={32}
+                    height={32}
+                    alt="Trusted by Industry Leaders"
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+                <h4 className="text-xl font-bold text-primary-dark mb-3">Trusted by Industry Leaders</h4>
+                <p className="text-zinc-500 text-sm leading-relaxed">
+                  Our customers are key decision-makers across every market we serve - a relationship built on quality, attention to detail, and long-term commitment.
+                </p>
+              </motion.div>
+
+              {/* Card 5: Expert Teams */}
+              <motion.div
+                variants={cardVariants}
+                className="relative flex flex-col rounded-2xl border border-sky-200 bg-surface-light p-8 transition-all duration-300 hover:shadow-lg hover:border-primary/30 hover:-translate-y-1"
+              >
+                <div className="mb-6 flex items-center">
+                  <Image
+                    src="/landing/icon-expert-teams.svg"
+                    width={32}
+                    height={32}
+                    alt="Expert Teams"
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+                <h4 className="text-xl font-bold text-primary-dark mb-3">Expert Teams</h4>
+                <p className="text-zinc-500 text-sm leading-relaxed">
+                  A core team of qualified professionals, supported by a broad network of domain experts across multiple industry verticals, built to meet the highest expectations.
+                </p>
+              </motion.div>
+
+              {/* Card 6: Global Training Centres */}
+              <motion.div
+                variants={cardVariants}
+                className="relative flex flex-col rounded-2xl border border-sky-200 bg-surface-light p-8 transition-all duration-300 hover:shadow-lg hover:border-primary/30 hover:-translate-y-1"
+              >
+                <div className="mb-6 flex items-center">
+                  <Image
+                    src="/landing/icon-training-centers.svg"
+                    width={32}
+                    height={32}
+                    alt="Global Training Centres"
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+                <h4 className="text-xl font-bold text-primary-dark mb-3">Global Training Centres</h4>
+                <p className="text-zinc-500 text-sm leading-relaxed">
+                  Proudly embedded in training centres, schools, and company facilities around the world - helping workforces become safer, more efficient, and more productive.
+                </p>
+              </motion.div>
+            </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Recognised, Certified & Trusted Section */}
+      <section className="py-24 sm:py-32 bg-white border-t border-sky-100/50">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl sm:text-[2.6rem] font-bold text-primary-dark tracking-tight leading-[1.2] sm:leading-[1.15] text-balance">
+                Recognised, Certified & Trusted
+              </h2>
+              <p className="text-zinc-500 text-base leading-relaxed mt-4 max-w-2xl mx-auto text-balance">
+                Our accreditations reflect an unwavering commitment to quality, safety, and security - validated by the world's most respected industry bodies.
+              </p>
+            </motion.div>
+          </div>
+
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-sky-100/80"
+          >
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                className="flex flex-col items-center text-center p-8 md:px-12 md:py-6 first:pl-0 last:pr-0 transition-all duration-300"
+              >
+                <div className="mb-6 h-16 flex items-center justify-center">
+                  <Image 
+                    src={cert.logo} 
+                    width={110} 
+                    height={55} 
+                    alt={`${cert.title} Logo`} 
+                    className={`${cert.logoClass || 'h-10 w-auto'} object-contain filter grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-300`}
+                  />
+                </div>
+                <h4 className="text-lg font-bold text-primary-dark mb-3">{cert.title}</h4>
+                <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
+                  {cert.text}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
     </div>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Figtree, Inter } from 'next/font/google';
 import './globals.css';
 import { LenisProvider } from '@/components';
+import ZoomBlocker from '@/components/ZoomBlocker/ZoomBlocker';
 
 const figtree = Figtree({
   variable: '--font-figtree',
@@ -21,6 +22,13 @@ export const metadata: Metadata = {
     'High-performance enterprise services, professional development, and bespoke client training.',
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,6 +41,7 @@ export default function RootLayout({
     >
       <body className='min-h-full flex flex-col bg-zinc-50/50 text-zinc-950 font-sans'>
         <LenisProvider>
+          <ZoomBlocker />
           {children}
         </LenisProvider>
       </body>

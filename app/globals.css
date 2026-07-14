@@ -35,8 +35,8 @@
   --font-body: var(--font-inter), sans-serif;
 
   /* Colors */
-  --color-heading: #111827;
-  --color-heading-muted: #4b5563;
+  --color-heading: #082f49;
+  --color-heading-muted: #0369a1;
 }
 
 /* ==========================================================================
@@ -146,10 +146,23 @@ h6:first-child {
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #082f49;
 }
 
-@theme inline {
+@theme {
+  --color-primary: #0369a1;
+  --color-primary-dark: #082f49;
+  --color-accent: #0ea5e9;
+  --color-highlight: #ff6700;
+  
+  --color-btn-neutral-slate: #f8fafc;
+  --color-btn-neutral-gray: #f9fafb;
+  --color-btn-neutral-sky: #f0f9ff;
+  
+  --color-surface-light: #ffffff;
+  --color-surface-light-alt: #f0f9ff;
+  --color-surface-dark: #082f49;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
