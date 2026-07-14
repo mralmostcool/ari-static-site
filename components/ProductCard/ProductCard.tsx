@@ -16,7 +16,7 @@ export default function ProductCard({
   productsIncluded,
 }: ProductCardProps) {
   return (
-    <div className="group flex flex-col bg-transparent p-4 -mx-4 rounded-2xl border-b border-zinc-200 hover:bg-zinc-50/80 hover:border-sky-500/40 transition-all duration-300 cursor-pointer">
+    <div className="group flex flex-col bg-transparent p-4 -mx-4 border-b border-zinc-200 hover:bg-zinc-50/80 hover:border-sky-500/40 transition-all duration-300 cursor-pointer">
       {/* Product Image - spans full width with sheen & hover effect */}
       <div className="relative w-full aspect-[16/10] overflow-hidden rounded-xl bg-zinc-100 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:shadow-sky-500/10">
         <img
